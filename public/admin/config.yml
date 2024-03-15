@@ -20,3 +20,6 @@ collections:
       - {label: "Publish Date", name: "publishDate", widget: "datetime"}
       - {label: "Hero Image", name: "heroImage", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
+
+identity:
+  enabled: true
