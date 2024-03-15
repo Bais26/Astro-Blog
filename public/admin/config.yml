@@ -1,11 +1,13 @@
 backend:
-name: git-gateway
-branch: main # Branch to update (optional; defaults to master)
+  name: github
+  repo: Bais26/Astro-Blog   # Ganti dengan username dan nama repositori Anda
+  branch: main          # Ganti dengan nama branch yang Anda gunakan
+  base_url: ''       
 
 publish_mode: editorial_workflow
 
-media_folder: "src/assets"
-public_folder: "/assets"
+media_folder: "src/assets" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/assets" # The src attribute for uploaded media will begin with /images/uploads
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
