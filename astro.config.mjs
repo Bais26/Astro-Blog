@@ -12,4 +12,8 @@ export default defineConfig({
 		externals: ['@fortawesome/fontawesome-free'],
 		polyfills: ['IntersectionObserver'],
 	  },
+	  scripts: {
+		// ...
+		postbuild: "tailwindcss build styles.css -o public/build.css"
+	  }
 });

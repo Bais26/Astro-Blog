@@ -1,5 +1,4 @@
 ---
-layout: /layouts/BlogPost.astro
 title: test
 description: ini test
 pubDate: 03-28-2024 11:13 +0700
