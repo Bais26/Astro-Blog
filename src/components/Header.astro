@@ -2,63 +2,94 @@
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
 ---
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        header {
+            margin: 0;
+            padding: 0 1em;
+            background: white;
+            box-shadow: 0 2px 8px rgba(var(--black), 5%);
+        }
+        h2 {
+            margin: 0;
+            font-size: 1em;
+        }
 
-<header>
-  <nav>
-    <h2><a href="/">{SITE_TITLE}</a></h2>
-    <div class="internal-links">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
-    </div>
-    <div class="social-links">
-      <a href="https://github.com/Bais26">
-        <i class="fab fa-github"></i>
-      </a>
-	  <a href="https://instagram.com/hi_basss">
-      <i class="fab fa-instagram"></i>
-	  </a>
-    </div>
-  </nav>
-</header>
-<style>
-  header {
-    margin: 0;
-    padding: 0 1em;
-    background: white;
-    box-shadow: 0 2px 8px rgba(var(--black), 5%);
-  }
-  h2 {
-    margin: 0;
-    font-size: 1em;
-  }
+        h2 a,
+        h2 a.active {
+            text-decoration: none;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav a {
+            padding: 1em 0.5em;
+            color: var(--black);
+            border-bottom: 4px solid transparent;
+            text-decoration: none;
+        }
+        nav a.active {
+            text-decoration: none;
+            border-bottom-color: var(--accent);
+        }
+        .social-links,
+        .social-links a {
+            display: flex;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+        @media screen and (max-width: 600px) {
+            .navbar a:not(:first-child) {
+                display: none;
+            }
+            .navbar a.icon {
+                display: block;
+            }
+            .navbar.responsive {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .navbar.responsive a {
+                display: block;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h2><a href="/">{SITE_TITLE}</a></h2>
+            <div class="navbar">
+                <HeaderLink href="/">Home</HeaderLink>
+                <HeaderLink href="/blog">Blog</HeaderLink>
+                <HeaderLink href="/about">About</HeaderLink>
+                <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                    &#9776;
+                </a>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/Bais26">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://instagram.com/hi_basss">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <script src="./script.js"></script>
+</body>
+</html>
 
-  h2 a,
-  h2 a.active {
-    text-decoration: none;
-  }
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  nav a {
-    padding: 1em 0.5em;
-    color: var(--black);
-    border-bottom: 4px solid transparent;
-    text-decoration: none;
-  }
-  nav a.active {
-    text-decoration: none;
-    border-bottom-color: var(--accent);
-  }
-  .social-links,
-  .social-links a {
-    display: flex;
-  }
-  @media (max-width: 720px) {
-    .social-links {
-      display: none;
-    }
-  }
-</style>
